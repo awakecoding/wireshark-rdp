@@ -103,3 +103,47 @@ Set-ItemProperty -Path 'HKLM:\SOFTWARE\Policies\Microsoft\Windows\System' -Name 
 ```
 
 Don't forget to close unused browsers, and Windows *should* be quiet enough!
+
+## FreeRDP
+
+The latest version of [FreeRDP](https://github.com/FreeRDP/FreeRDP) accepts SSKEYLOGFILE as a command-line parameter:
+
+```
+/tls:secrets-file:</path/to/freerdp-tls.keys>
+```
+
+It is recommended to build FreeRDP from source, as prebuilt versions of FreeRDP in Linux distributions are unlikely to have this option.
+
+## IronRDP
+
+The [IronRDP](https://github.com/Devolutions/IronRDP) desktop client accepts the SSKEYLOGFILE environment variable:
+
+```PowerShell
+$Env:SSLKEYLOGFILE="C:\path\to\ironrdp-tls.keys"
+```
+
+IronRDP is still in active development, so check for updates frequently!
+
+## Capture Exporting
+
+Make sure you have correctly set up Wireshark with a TLS pre-master secret file used by the RDP client you wan to capture traffic from. Start the capture, launch a connection, then stop the capture. Apply a simple filter like `tcp.port == 3389`, then right-click on any of the RDP packets and use **Follow** -> **TCP Stream**:
+
+![Wireshark Follow TCP Stream](./images/wireshark_follow_tcp_stream.png)
+
+Wireshark should now show only a single RDP TCP connection with TLS traffic decrypted, and all unrelated traffic removed. Export the filtered capture using **File** -> **Export Specified Packets..**. In the export dialog, select **Displayed** instead of **Captured**, and save the capture in the newer pcapng format, not the older pcap format (very important!).
+
+Next, use **File** -> **Export TLS Session Keys** and export a second file using the .keys extension matching your the name of your .pcapng file, such that you can remember which files go together easily (rdp-test.pcapng + rdp-test.keys).
+
+The final step is to embed the TLS session keys into the pcapng file, such that it can be shared easily with someone that didn't explicitly configure Wireshark to load a specific TLS pre-master secret file. Close Wireshark, then open PowerShell, and move to the directory containing your files.
+
+Use the following code snippet to call the editcap command-line tool to embed the TLS session keys into the capture file, and keep only the final capture file that can be shared easily with other people:
+
+```PowerShell
+$CaptureName = "rdp-test" # change this
+$Env:PATH += ";$Env:ProgramFiles\Wireshark"
+& editcap --inject-secrets "tls,${CaptureName}.keys" "${CaptureName}.pcapng" "${CaptureName}-tls.pcapng"
+@("${CaptureName}.pcapng", "${CaptureName}.keys") | Remove-Item
+Move-Item "${CaptureName}-tls.pcapng" "${CaptureName}.pcapng"
+```
+
+I wish there was a simpler way to do this, but I couldn't find one. In any case, you now have a [reference capture file](captures/freerdp-test.pcapng) that decrypts without effort!
