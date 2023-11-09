@@ -1,5 +1,6 @@
 #Requires -Module PSDetour
 #Requires -RunAsAdministrator
+#Requires -PSEdition Core
 
 #
 # This tool was made possible thanks to Jordan Borean:

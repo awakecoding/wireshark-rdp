@@ -14,7 +14,7 @@ To configure Wireshark to use a specific TLS key log file, open the **Preference
 
 This technique involves attaching to lsass.exe in order to dump TLS pre-master secrets from SChannel into the SSLKEYLOGFILE format supported by Wireshark. This is by far the simplest approach so it's absolutely worth the trouble, but it should only be used in test environments where security features can be disabled.
 
-Follow these instructions using an *elevated* PowerShell terminal:
+Follow these instructions using an *elevated* [PowerShell 7](https://learn.microsoft.com/en-us/powershell/scripting/install/installing-powershell-on-windows) terminal (Windows PowerShell is *not* compatible).
 
 Disable [LSA extended protection](https://learn.microsoft.com/en-us/windows-server/security/credentials-protection-and-management/configuring-additional-lsa-protection#how-to-disable-lsa-protection), and then reboot the machine:
 
