@@ -149,3 +149,7 @@ Move-Item "${CaptureName}-tls.pcapng" "${CaptureName}.pcapng"
 ```
 
 Congratulations, you now have a Wireshark capture file with RDP traffic that you can easily share with anyone and that will decrypt properly!
+
+## Sample Captures
+
+Sample Wireshark capture files [are available here](captures/README.md)!
