@@ -130,13 +130,15 @@ Make sure you have correctly set up Wireshark with a TLS pre-master secret file 
 
 ![Wireshark Follow TCP Stream](./images/wireshark_follow_tcp_stream.png)
 
-Wireshark should now show only a single RDP TCP connection with TLS traffic decrypted, and all unrelated traffic removed. Export the filtered capture using **File** -> **Export Specified Packets..**. In the export dialog, select **Displayed** instead of **Captured**, and save the capture in the newer pcapng format, not the older pcap format (very important!).
+Wireshark should now show only a single RDP TCP connection with TLS traffic decrypted, and all unrelated traffic removed.
 
-Next, use **File** -> **Export TLS Session Keys** and export a second file using the .keys extension matching your the name of your .pcapng file, such that you can remember which files go together easily (rdp-test.pcapng + rdp-test.keys).
+Next, use **Edit** -> **Inject TLS Secrets** to inject the TLS secrets from the currently loaded TLS pre-master secret file into the capture file:
 
-The final step is to embed the TLS session keys into the pcapng file, such that it can be shared easily with someone that didn't explicitly configure Wireshark to load a specific TLS pre-master secret file. Close Wireshark, then open PowerShell, and move to the directory containing your files.
+![Wireshark Inject TLS secrets](./images/wireshark_inject_tls_secrets.png)
 
-Use the following code snippet to call the editcap command-line tool to embed the TLS session keys into the capture file, and keep only the final capture file that can be shared easily with other people:
+Export the filtered, decrypted capture using **File** -> **Export Specified Packets..**. In the export dialog, select **Displayed** instead of **Captured**, and save the capture in the newer pcapng format, not the older pcap format (very important!).
+
+Alternatively, you can inject TLS secrets into an existing .pcapng file using the [editcap command-line tool](https://www.wireshark.org/docs/man-pages/editcap.html):
 
 ```PowerShell
 $CaptureName = "rdp-test" # change this
@@ -146,4 +148,4 @@ $Env:PATH += ";$Env:ProgramFiles\Wireshark"
 Move-Item "${CaptureName}-tls.pcapng" "${CaptureName}.pcapng"
 ```
 
-I wish there was a simpler way to do this, but I couldn't find one. In any case, you now have a [reference capture file](captures/freerdp-test.pcapng) that decrypts without effort!
+Congratulations, you now have a Wireshark capture file with RDP traffic that you can easily share with anyone and that will decrypt properly!
