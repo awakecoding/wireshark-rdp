@@ -85,3 +85,35 @@ The client connected using the FQDN of the server and attempted Kerberos passwor
 * Username: Administrator@ad.it-help.ninja
 * Server: IT-HELP-TEST.ad.it-help.ninja
 * Authentication: RDP without NLA, without TLS (password)
+
+## RDP Restricted Admin Mode, accepted by server #1
+
+[rdp-restricted-admin-accepted1.pcapng](rdp-restricted-admin-accepted1.pcapng)
+
+* Username: Administrator@ad.it-help.ninja
+* Server: IT-HELP-TEST.ad.it-help.ninja
+* Authentication: RDP with NLA + Restricted Admin Mode
+
+## RDP Restricted Admin Mode, rejected by server #1
+
+[rdp-restricted-admin-rejected1.pcapng](rdp-restricted-admin-rejected1.pcapng)
+
+* Username: Administrator@ad.it-help.ninja
+* Server: IT-HELP-TEST.ad.it-help.ninja
+* Authentication: RDP with NLA + Restricted Admin Mode
+
+## RDP Remote Credential Guard, accepted by server #1
+
+[rdp-credential-guard-accepted1.pcapng](rdp-credential-guard-accepted1.pcapng)
+
+* Username: Administrator@ad.it-help.ninja
+* Server: IT-HELP-TEST.ad.it-help.ninja
+* Authentication: RDP with NLA + Remote Credential Guard
+
+## RDP Remote Credential Guard, rejected by server #1
+
+[rdp-credential-guard-rejected1.pcapng](rdp-credential-guard-rejected1.pcapng)
+
+* Username: Administrator@ad.it-help.ninja
+* Server: IT-HELP-TEST.ad.it-help.ninja
+* Authentication: RDP with NLA + Remote Credential Guard
