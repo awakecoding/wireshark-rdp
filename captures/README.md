@@ -117,3 +117,105 @@ The client connected using the FQDN of the server and attempted Kerberos passwor
 * Username: Administrator@ad.it-help.ninja
 * Server: IT-HELP-TEST.ad.it-help.ninja
 * Authentication: RDP with NLA + Remote Credential Guard
+
+## RD Gateway with different credentials, Kerberos password authentication
+
+[rdp-rdg-diff-creds-kerberos-password.pcapng](rdp-rdg-diff-creds-kerberos-password.pcapng)
+
+RD Gateway:
+* Username: Administrator@ad.it-help.ninja
+* Server: IT-HELP-GW.ad.it-help.ninja
+* Authentication: Kerberos, password-based
+
+RDP server:
+* Username: ProtectedUser@ad.it-help.ninja
+* Server: IT-HELP-TEST.ad.it-help.ninja
+* Authentication: Kerberos, password-based
+
+## RD Gateway with different credentials, Kerberos smartcard authentication
+
+[rdp-rdg-diff-creds-kerberos-smartcard.pcapng](rdp-rdg-diff-creds-kerberos-smartcard.pcapng)
+
+RD Gateway:
+* Username: Administrator@ad.it-help.ninja
+* Server: IT-HELP-GW.ad.it-help.ninja
+* Authentication: Kerberos, smartcard-based
+
+RDP server:
+* Username: ProtectedUser@ad.it-help.ninja
+* Server: IT-HELP-TEST.ad.it-help.ninja
+* Authentication: Kerberos, smartcard-based
+
+## RD Gateway with no KDC proxy, NTLM downgrade failure
+
+[rdp-rdg-no-kdc-proxy-ntlm-downgrade-failure.pcapng](rdp-rdg-no-kdc-proxy-ntlm-downgrade-failure.pcapng)
+
+RD Gateway:
+* Username: ProtectedUser@ad.it-help.ninja
+* Server: IT-HELP-GW.ad.it-help.ninja
+* Authentication: Kerberos, password-based
+
+## RD Gateway with no KDC proxy, NTLM downgrade success
+
+[rdp-rdg-no-kdc-proxy-ntlm-downgrade-success.pcapng](rdp-rdg-no-kdc-proxy-ntlm-downgrade-success.pcapng)
+
+RD Gateway:
+* Username: Administrator@ad.it-help.ninja
+* Server: IT-HELP-GW.ad.it-help.ninja
+* Authentication: Kerberos, password-based
+
+## RD Gateway with KDC proxy, same credentials, Kerberos password authentication
+
+[rdp-rdg-same-creds-kerberos-password-success1.pcapng](rdp-rdg-same-creds-kerberos-password-success1.pcapng)
+
+RD Gateway:
+* Username: ProtectedUser@ad.it-help.ninja
+* Server: IT-HELP-GW.ad.it-help.ninja
+* Authentication: Kerberos, password-based
+
+RDP server:
+* Username: ProtectedUser@ad.it-help.ninja
+* Server: IT-HELP-TEST.ad.it-help.ninja
+* Authentication: Kerberos, password-based
+
+## RD Gateway with KDC line-of-sight, same credentials, Kerberos password authentication
+
+[rdp-rdg-same-creds-kerberos-password-success2.pcapng](rdp-rdg-same-creds-kerberos-password-success2.pcapng)
+
+RD Gateway:
+* Username: ProtectedUser@ad.it-help.ninja
+* Server: IT-HELP-GW.ad.it-help.ninja
+* Authentication: Kerberos, password-based
+
+RDP server:
+* Username: ProtectedUser@ad.it-help.ninja
+* Server: IT-HELP-TEST.ad.it-help.ninja
+* Authentication: Kerberos, password-based
+
+## RD Gateway with KDC proxy, same credentials, Kerberos smartcard authentication
+
+[rdp-rdg-same-creds-kerberos-smartcard-success1.pcapng](rdp-rdg-same-creds-kerberos-smartcard-success1.pcapng)
+
+RD Gateway:
+* Username: ProtectedUser@ad.it-help.ninja
+* Server: IT-HELP-GW.ad.it-help.ninja
+* Authentication: Kerberos, smartcard-based
+
+RDP server:
+* Username: ProtectedUser@ad.it-help.ninja
+* Server: IT-HELP-TEST.ad.it-help.ninja
+* Authentication: Kerberos, smartcard-based
+
+## RD Gateway with KDC line-of-sight, same credentials, Kerberos smartcard authentication
+
+[rdp-rdg-same-creds-kerberos-smartcard-success2.pcapng](rdp-rdg-same-creds-kerberos-smartcard-success2.pcapng)
+
+RD Gateway:
+* Username: ProtectedUser@ad.it-help.ninja
+* Server: IT-HELP-GW.ad.it-help.ninja
+* Authentication: Kerberos, smartcard-based
+
+RDP server:
+* Username: ProtectedUser@ad.it-help.ninja
+* Server: IT-HELP-TEST.ad.it-help.ninja
+* Authentication: Kerberos, smartcard-based
