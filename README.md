@@ -22,16 +22,22 @@ Disable [LSA extended protection](https://learn.microsoft.com/en-us/windows-serv
 Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Lsa' -Name 'RunAsPPL' -Value 0
 ```
 
-Install [PSDetour](https://github.com/jborean93/PSDetour):
+Launch PowerShell 7 elevated, then install [PSDetour](https://github.com/jborean93/PSDetour):
 
 ```PowerShell
-Install-Module -Name PSDetour -Scope AllUsers -Force
+Install-Module -Name PSDetour -Scope AllUsers –Force
 ```
 
-Launch tls-lsa-dump.ps1:
+Install the [AwakeCoding.DebugTools PowerShell module](https://github.com/awakecoding/AwakeCoding.DebugTools):
 
 ```PowerShell
-.\tls-lsa-dump.ps1
+Install-Module –Name AwakeCoding.DebugTools –Scope AllUsers –Force
+```
+
+Start logging TLS pre-master secrets, and leave terminal open:
+
+```PowerShell
+Start-LsaTlsKeyLog
 ```
 
 By default, the script will use `C:\Windows\Temp\tls-lsa.log` as the SSLKEYLOGFILE. Make sure that Wireshark is properly configured to use it, then capture a first RDP connection to see if it works!
