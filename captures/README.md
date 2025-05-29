@@ -219,3 +219,15 @@ RDP server:
 * Username: ProtectedUser@ad.it-help.ninja
 * Server: IT-HELP-TEST.ad.it-help.ninja
 * Authentication: Kerberos, smartcard-based
+
+## RDP clipboard redirection with various formats
+
+[rdp-clipboard-various-formats1.pcapng](rdp-clipboard-various-formats1.pcapng)
+
+Sample capture showing clipboard redirection with various formats (text, images, rich text, file copy, etc).
+
+## RDP vmconnect, remote, basic session mode
+
+[rdp-vmconnect-remote-basic-session-mode1.pcapng](rdp-vmconnect-remote-basic-session-mode1.pcapng)
+
+Remote RDP vmconnect connection to Hyper-V in basic session mode, with an Alpine Linux VM guest.
