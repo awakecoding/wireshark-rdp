@@ -225,3 +225,9 @@ RDP server:
 [rdp-clipboard-various-formats1.pcapng](rdp-clipboard-various-formats1.pcapng)
 
 Sample capture showing clipboard redirection with various formats (text, images, rich text, file copy, etc).
+
+## RDP vmconnect, remote, basic session mode
+
+[rdp-vmconnect-remote-basic-session-mode1.pcapng](rdp-vmconnect-remote-basic-session-mode1.pcapng)
+
+Remote RDP vmconnect connection to Hyper-V in basic session mode, with an Alpine Linux VM guest.
