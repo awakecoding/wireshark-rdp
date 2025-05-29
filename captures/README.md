@@ -219,3 +219,9 @@ RDP server:
 * Username: ProtectedUser@ad.it-help.ninja
 * Server: IT-HELP-TEST.ad.it-help.ninja
 * Authentication: Kerberos, smartcard-based
+
+## RDP clipboard redirection with various formats
+
+[rdp-clipboard-various-formats1.pcapng](rdp-clipboard-various-formats1.pcapng)
+
+Sample capture showing clipboard redirection with various formats (text, images, rich text, file copy, etc).
