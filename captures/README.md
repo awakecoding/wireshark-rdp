@@ -226,8 +226,26 @@ RDP server:
 
 Sample capture showing clipboard redirection with various formats (text, images, rich text, file copy, etc).
 
+## RDP vmconnect, local, basic session mode
+
+[rdp-vmconnect-local-basic-session-mode1.pcapng](rdp-vmconnect-local-basic-session-mode1.pcapng)
+
+Local RDP vmconnect connection to Hyper-V using implicit credentials, in basic session mode, with an Alpine Linux VM guest.
+
+## RDP vmconnect, local, enhanced session mode
+
+[rdp-vmconnect-local-enhanced-session-mode1.pcapng](rdp-vmconnect-local-enhanced-session-mode1.pcapng)
+
+Local RDP vmconnect connection to Hyper-V using implicit credentials, in enhanced session mode, with a Windows Server VM guest.
+
 ## RDP vmconnect, remote, basic session mode
 
 [rdp-vmconnect-remote-basic-session-mode1.pcapng](rdp-vmconnect-remote-basic-session-mode1.pcapng)
 
-Remote RDP vmconnect connection to Hyper-V in basic session mode, with an Alpine Linux VM guest.
+Remote RDP vmconnect connection to Hyper-V using explicit credentials, in basic session mode, with an Alpine Linux VM guest.
+
+## RDP vmconnect, remote, enhanced session mode
+
+[rdp-vmconnect-remote-enhanced-session-mode1.pcapng](rdp-vmconnect-remote-enhanced-session-mode1.pcapng)
+
+Remote RDP vmconnect connection to Hyper-V using explicit credentials, in enhanced session mode, with a Windows Server VM guest.
